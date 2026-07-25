@@ -114,6 +114,125 @@
       transform: scale(1.04);
     }
 
+
+    /* Блок для рекламодателей */
+    .cooperation {
+      width: 440px;
+      max-width: calc(100% - 40px);
+      margin: 38px auto 0;
+      border: 1px solid rgba(124, 255, 0, 0.38);
+      border-radius: 14px;
+      background: #070707;
+      box-shadow: 0 0 16px rgba(124, 255, 0, 0.12);
+      overflow: hidden;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .cooperation.open {
+      border-color: #7CFF00;
+      box-shadow: 0 0 24px rgba(124, 255, 0, 0.32);
+    }
+
+    .cooperation-toggle {
+      width: 100%;
+      min-height: 84px;
+      padding: 16px 20px;
+      border: 0;
+      background: transparent;
+      color: #7CFF00;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 1.05em;
+      letter-spacing: 0.5px;
+      text-align: left;
+    }
+
+    .cooperation-toggle:hover {
+      background: rgba(124, 255, 0, 0.035);
+    }
+
+    .cooperation-icon {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
+      color: #7CFF00;
+      filter: drop-shadow(0 0 8px rgba(124, 255, 0, 0.45));
+    }
+
+    .cooperation-title {
+      flex: 1;
+    }
+
+    .cooperation-arrow {
+      width: 13px;
+      height: 13px;
+      border-right: 2px solid #7CFF00;
+      border-bottom: 2px solid #7CFF00;
+      transform: rotate(45deg);
+      transition: transform 0.3s ease;
+      margin-right: 5px;
+      margin-top: -6px;
+    }
+
+    .cooperation.open .cooperation-arrow {
+      transform: rotate(225deg);
+      margin-top: 7px;
+    }
+
+    .cooperation-menu {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      padding: 0 18px;
+      transition: max-height 0.38s ease, opacity 0.25s ease, padding 0.38s ease;
+    }
+
+    .cooperation.open .cooperation-menu {
+      max-height: 180px;
+      opacity: 1;
+      padding: 0 18px 18px;
+    }
+
+    .cooperation-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .cooperation-link {
+      min-height: 58px;
+      padding: 10px 12px;
+      border-radius: 11px;
+      background: linear-gradient(145deg, #5fd600, #7CFF00);
+      color: #050505;
+      text-decoration: none;
+      font-weight: 800;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      box-shadow: 0 0 12px rgba(124, 255, 0, 0.38);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .cooperation-link:hover {
+      background: #7CFF00;
+      transform: scale(1.035);
+      box-shadow: 0 0 22px rgba(124, 255, 0, 0.72);
+    }
+
+    .cooperation-link small {
+      margin-top: 3px;
+      font-size: 0.78em;
+      font-weight: 700;
+      opacity: 0.78;
+    }
+
     .modal {
       display: none;
       position: fixed;
@@ -227,6 +346,34 @@
         max-width: 280px;
       }
 
+
+      .cooperation {
+        width: 88%;
+        max-width: 340px;
+        margin-top: 32px;
+      }
+
+      .cooperation-toggle {
+        min-height: 76px;
+        padding: 13px 16px;
+        gap: 13px;
+        font-size: 0.96em;
+      }
+
+      .cooperation-icon {
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px;
+      }
+
+      .cooperation-links {
+        grid-template-columns: 1fr;
+      }
+
+      .cooperation.open .cooperation-menu {
+        max-height: 260px;
+      }
+
       .modal-content {
         margin: 6vh auto;
         padding: 24px 20px;
@@ -263,6 +410,55 @@
     <button id="donate-btn" type="button">💸 Donate</button>
     <button id="pc-btn" type="button">🖥️ My PC</button>
   </div>
+
+
+  <!-- Сотрудничество / контакты для рекламы -->
+  <section id="cooperation" class="cooperation">
+    <button
+      id="cooperation-toggle"
+      class="cooperation-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="cooperation-menu"
+    >
+      <svg class="cooperation-icon" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M20 25l8-8c3-3 7-3 10 0l3 3" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M44 25l-8-8c-3-3-7-3-10 0l-3 3" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 19l9-7 10 13-9 7zM59 19l-9-7-10 13 9 7z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M18 29l17 17c2 2 5 2 7 0s2-5 0-7l-9-9" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23 38l-3 3c-2 2-5 2-7 0s-2-5 0-7l4-4M29 44l-2 2c-2 2-5 2-7 0-1-1-2-3-1-5M36 48c-2 2-5 2-7 0" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <span id="cooperation-title" class="cooperation-title">СОТРУДНИЧЕСТВО</span>
+      <span class="cooperation-arrow" aria-hidden="true"></span>
+    </button>
+
+    <div id="cooperation-menu" class="cooperation-menu">
+      <div class="cooperation-links">
+        <a
+          id="business-tg"
+          class="cooperation-link"
+          href="https://t.me/HORNET_1010"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span id="business-tg-title">✈️ Telegram</span>
+          <small>@HORNET_1010</small>
+        </a>
+
+        <a
+          id="business-vk"
+          class="cooperation-link"
+          href="https://vk.ru/hornet_1010"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span id="business-vk-title">🔵 ВКонтакте</span>
+          <small>vk.ru/hornet_1010</small>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <div id="donate-modal" class="modal">
     <div class="modal-content">
@@ -315,7 +511,10 @@
         pc: "Мой ПК",
         donateTitle: "ПОДДЕРЖАТЬ HORNET",
         donateNote: "Спасибо за поддержку канала. Любой донат помогает делать больше контента по Rust.",
-        donateLink: "💸 DonationAlerts"
+        donateLink: "💸 DonationAlerts",
+        cooperation: "СОТРУДНИЧЕСТВО",
+        businessTelegram: "✈️ Telegram",
+        businessVk: "🔵 ВКонтакте"
       },
       en: {
         title: "HORNET",
@@ -329,7 +528,10 @@
         pc: "My PC",
         donateTitle: "SUPPORT HORNET",
         donateNote: "Thank you for supporting the channel. Every donation helps create more Rust content.",
-        donateLink: "💸 DonationAlerts"
+        donateLink: "💸 DonationAlerts",
+        cooperation: "COLLABORATION",
+        businessTelegram: "✈️ Telegram",
+        businessVk: "🔵 VK"
       }
     };
 
@@ -345,6 +547,9 @@
 
     const logoLink = document.getElementById('logo-link');
 
+    const cooperation = document.getElementById('cooperation');
+    const cooperationToggle = document.getElementById('cooperation-toggle');
+
     function applyLanguage(lang) {
       localStorage.setItem('lang', lang);
       document.getElementById('title').innerText = translations[lang].title;
@@ -359,6 +564,9 @@
       document.getElementById('donate-title').innerText = translations[lang].donateTitle;
       document.getElementById('donate-note').innerText = translations[lang].donateNote;
       document.getElementById('donate-link').innerHTML = translations[lang].donateLink;
+      document.getElementById('cooperation-title').innerText = translations[lang].cooperation;
+      document.getElementById('business-tg-title').innerText = translations[lang].businessTelegram;
+      document.getElementById('business-vk-title').innerText = translations[lang].businessVk;
     }
 
     function openPC() {
@@ -399,6 +607,14 @@
       sound.play().catch(() => {});
     }
 
+
+    function toggleCooperation() {
+      const isOpen = cooperation.classList.toggle('open');
+      cooperationToggle.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    cooperationToggle.addEventListener('click', toggleCooperation);
+
     pcBtn.addEventListener('click', openPC);
     closePc.addEventListener('click', closePC);
 
@@ -417,6 +633,8 @@
       if (event.key === 'Escape') {
         closePC();
         closeDonateModal();
+        cooperation.classList.remove('open');
+        cooperationToggle.setAttribute('aria-expanded', 'false');
       }
     });
 
